@@ -1,0 +1,12 @@
+<hr>
+<p style="font-weight:bold">Details fo the vehicle</p>
+<div>Model:
+     <input [(ngModel)]="car.model">
+ </div>
+
+<div>Color:
+     <input [(ngModel)]="car.color">
+</div>
+<div>Price:
+    <span class="currencyinput">$<input [ngModel]="car.price" (ngModelChange)="car.price=$event" type="text"/></span>
+</div>

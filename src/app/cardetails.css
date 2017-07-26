@@ -1,0 +1,10 @@
+.currencyinput {
+    border: 1px inset #ccc;
+    height: 80px;
+}
+.currencyinput input {
+    border: none;
+}
+div{
+    margin: 10px;
+}
