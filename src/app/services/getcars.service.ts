@@ -1,6 +1,6 @@
 import { Logger } from './logger';
-import { CarCreator } from './car.creator';
-import { Car } from './car'
+import { CarCreator } from '../../app/car/car.creator';
+import { Car } from '../../app/car/car';
 import { Injectable } from '@angular/core';
 
 

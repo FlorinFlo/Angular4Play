@@ -1,4 +1,4 @@
-import { Car } from './car';
+import { Car } from './../../../src/app/car/car';
 import { Component, Input } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 

@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Car } from './car';
-import { GetCarsService } from './getcars.service';
-import { Logger } from './logger';
-import { CarCreator } from './car.creator';
+import { Car } from '../../app/car/car';
+import { GetCarsService } from '../services/getcars.service';
+import { Logger } from '../services/logger';
+import { CarCreator } from '../car/car.creator';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 
@@ -54,7 +54,11 @@ export class CarsList implements OnInit {
 
     selectCar(car: Car) {
         
-        this.selectedCar = car;
+        console.log("select car "+car);
+
+        if(car!=null){
+            this.selectedCar = car;
+        } 
     
         for (var index = 0; index < this.carsList.length; index++) {
             
@@ -64,6 +68,7 @@ export class CarsList implements OnInit {
             
         }
     }
+    
 
 
 }

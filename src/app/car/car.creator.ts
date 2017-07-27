@@ -1,6 +1,6 @@
 import { Car } from './car';
 import { Type,Injectable } from '@angular/core';
-import { Logger } from './logger';
+import { Logger } from './../../../src/app/services/logger';
 
 
 const cars = [
