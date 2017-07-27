@@ -11,6 +11,11 @@ import { CurrencyPipe } from '@angular/common';
 export class CarDetail {
     @Input() car: Car;
 
+    editable:boolean=false;
 
+    toggleEdit(){
+        
+        this.editable=this.editable?false:true;
+    }
 
 }

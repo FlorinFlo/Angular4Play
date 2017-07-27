@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Car } from '../../app/car/car';
 import { GetCarsService } from '../services/getcars.service';
 import { Logger } from '../services/logger';
 import { CarCreator } from '../car/car.creator';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 
 @Component({
@@ -68,6 +69,7 @@ export class CarsList implements OnInit {
             
         }
     }
+    
     
 
 

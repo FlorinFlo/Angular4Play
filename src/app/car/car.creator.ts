@@ -4,7 +4,7 @@ import { Logger } from './../../../src/app/services/logger';
 
 
 const cars = [
-    new Car("Astra", "White", 5000),
+   
     new Car("Dacia", "Blue", 2500),
     new Car("Dayhatzu", "Red", 4500),
     new Car("WV", "Orange", 3000),
@@ -14,10 +14,6 @@ const cars = [
     new Car("Subaru", "Red", 4500),
     new Car("Lada", "Orange", 3000),
     new Car("Tatra", "Pink", 5000)
-   
-
-
-
 ]
 
 @Injectable()
@@ -31,7 +27,16 @@ export class CarCreator {
         }
         let error=new Error("Cars can't be retrieved");
         this.logger.error(error);
+            
         throw error;
     }
+
+    addNewCar(car :Car){
+        cars.push(car);
+    }
+
+
+
+    
 }
 

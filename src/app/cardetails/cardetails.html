@@ -1,12 +1,32 @@
 <hr>
-<p style="font-weight:bold">Details fo the vehicle</p>
-<div>Model:
-     <input [(ngModel)]="car.model">
- </div>
 
-<div>Color:
-     <input [(ngModel)]="car.color">
+
+<p style="font-weight:bold">Details fo the vehicle</p>
+
+
+<div class="container" [hidden]="editable">
+
+
+<p>Model: {{car.model}}</p>
+
+<p>Color: {{car.color}}</p>
+
+<p>Price: ${{car.price}}</p>
+
+<button  class="btn btn-primary"  (click)="toggleEdit()">Edit</button>
 </div>
-<div>Price:
-    <span class="currencyinput">$<input [ngModel]="car.price" (ngModelChange)="car.price=$event" type="text"/></span>
+
+
+<div class="container" [hidden]="!editable">
+    <div>Model:
+        <input [(ngModel)]="car.model">
+    </div>
+
+    <div>Color:
+        <input [(ngModel)]="car.color">
+    </div>
+    <div>Price:
+        <span class="currencyinput">$<input [ngModel]="car.price" (ngModelChange)="car.price=$event" type="text"/></span>
+    </div>
+    <button class="btn btn-success" (click)="toggleEdit()" >Submit</button>
 </div>
