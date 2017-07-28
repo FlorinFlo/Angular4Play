@@ -1,7 +1,7 @@
 
 export class Car {
 
-    constructor(private model: string, private color: string, private price: number, public state = 'inactive') { }
+    constructor(public model: string, public color: string, public price: number, public state = 'inactive') { }
 
     toggleState() {
         console.log("Toggle state" + this.model);

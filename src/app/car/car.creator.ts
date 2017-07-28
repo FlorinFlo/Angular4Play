@@ -32,6 +32,7 @@ export class CarCreator {
     }
 
     addNewCar(car :Car){
+        console.log(car.price+"=>Model");
         cars.push(car);
     }
 

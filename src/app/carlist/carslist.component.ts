@@ -40,16 +40,7 @@ export class CarsList implements OnInit {
 
     ngOnInit() {
 
-        this.carsList = this.service.getCars();
-        let callback = setTimeout(() => {
-            if (this.carsList.length <= 5) {
-                this.listSize = (100 / this.carsList.length) - 1 + "%"
-            } else {
-                this.listSize = "19%"
-            }
-
-        }, 0);
-
+      this.initializeListOfCars();
 
     }
 
@@ -68,6 +59,24 @@ export class CarsList implements OnInit {
             }
             
         }
+    }
+
+    initializeListOfCars(){
+
+        if(this.carsList.length>0){
+            this.carsList.length=0;
+        }           
+          this.carsList = this.service.getCars();
+        let callback = setTimeout(() => {
+            if (this.carsList.length <= 5) {
+                this.listSize = (100 / this.carsList.length) - 1 + "%"
+            } else {
+                this.listSize = "19%"
+            }
+
+        }, 0);
+
+        
     }
     
     
