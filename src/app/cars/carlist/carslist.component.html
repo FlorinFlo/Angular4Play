@@ -1,0 +1,12 @@
+<hr>
+<div>
+    <div  >
+    <button *ngFor="let car of carsList"  [class.hidden]="carsList.length==0"
+     [@carState]="car.state" (click)="selectCar(car);car.toggleState()" >{{car.model}}</button>
+    </div>
+</div>
+
+<!-- <car-details *ngIf="selectedCar" [car]="selectedCar"></car-details> -->
+
+ <!-- <new-car *ngIf="selectedCar" [car]="selectedCar"></new-car>  -->
+<!-- [style.width]="listSize" -->

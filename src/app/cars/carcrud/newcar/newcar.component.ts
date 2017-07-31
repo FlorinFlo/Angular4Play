@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild, AfterViewChecked } from '@angular/core';
-import { Car } from './../../car/car';
-import { CarCreator } from './../../car/car.creator';
-import { CarsList } from './../../carlist/carslist.component'
+import { Car } from '../../car/car';
+import { CarCreator } from '../../car/car.creator';
+import { CarsList } from '../../carlist/carslist.component';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 
 export class NewCar {
-    //@Input() car: Car;
+    @Input() car: Car;
 
     carForm: NgForm;
     @ViewChild('carForm') currentForm: NgForm;
@@ -18,7 +18,7 @@ export class NewCar {
 
     constructor(private carCreator: CarCreator, private carlist: CarsList) { }
 
-    model = new Car(" ", " ", null);
+    model = new Car(100,"", " ", null);
 
     ngAfterViewChecked() {
         console.log("in ng after view checked");
@@ -69,7 +69,7 @@ export class NewCar {
 
     onSubmit() {
 
-        let car: Car = new Car(this.model.model, this.model.color, this.model.price, "inactive");
+        let car: Car = new Car(100,this.model.model, this.model.color, this.model.price, "inactive");
 
         this.carCreator.addNewCar(car);
         this.carlist.initializeListOfCars();

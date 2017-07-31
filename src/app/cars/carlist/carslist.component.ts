@@ -1,10 +1,14 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { Car } from '../../app/car/car';
-import { GetCarsService } from '../services/getcars.service';
-import { Logger } from '../services/logger';
+import { Car } from '../car/car';
+import { GetCarsService } from '../carlist/getcars.service';
+import { Logger } from '../../services/logger';
 import { CarCreator } from '../car/car.creator';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
+import 'rxjs/add/operator/switchMap';
+import { Observable } from 'rxjs/Observable';
+
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
 @Component({

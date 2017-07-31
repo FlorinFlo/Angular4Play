@@ -1,4 +1,4 @@
-div{
+/* div{
      width: 100%; 
      text-align: center;
 }
@@ -6,7 +6,7 @@ div{
 button{
     display:block-inline;   
      margin: 1px; 
-}
+} */
     .hidden{
        display: none; 
     }

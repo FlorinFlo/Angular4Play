@@ -1,19 +1,19 @@
 import { Car } from './car';
 import { Type,Injectable } from '@angular/core';
-import { Logger } from './../../../src/app/services/logger';
+import { Logger } from '../../services/logger';
 
 
 const cars = [
    
-    new Car("Dacia", "Blue", 2500),
-    new Car("Dayhatzu", "Red", 4500),
-    new Car("WV", "Orange", 3000),
-    new Car("Nissan", "Pink", 5000),
-    new Car("Insignia", "White", 5000),
-    new Car("Logan", "Blue", 2500),
-    new Car("Subaru", "Red", 4500),
-    new Car("Lada", "Orange", 3000),
-    new Car("Tatra", "Pink", 5000)
+    new Car(1,"Dacia", "Blue", 2500),
+    new Car(2,"Dayhatzu", "Red", 4500),
+    new Car(3,"WV", "Orange", 3000),
+    new Car(4,"Nissan", "Pink", 5000),
+    new Car(5,"Insignia", "White", 5000),
+    new Car(6,"Logan", "Blue", 2500),
+    new Car(7,"Subaru", "Red", 4500),
+    new Car(8,"Lada", "Orange", 3000),
+    new Car(9,"Tatra", "Pink", 5000)
 ]
 
 @Injectable()
