@@ -1,5 +1,5 @@
 import { Logger } from '../../services/logger';
-import { CarCreator } from '../car/car.creator';
+import { CarService } from '../car/car.service';
 import { Car } from '../../cars/car/car';
 import { Injectable } from '@angular/core';
 
@@ -9,10 +9,10 @@ export class GetCarsService {
 
     
     carsList: Car[] = [];
-    constructor(private carCreator: CarCreator,private logger:Logger) { }
+    constructor(private carCreator: CarService,private logger:Logger) { }
 
     getCars() {
-        this.carCreator.getAllCars(Car).then((cars: Car[]) => {
+        this.carCreator.getAllCars().then((cars: Car[]) => {
             this.carsList.push(...cars);
             
             this.logger.log("Push");

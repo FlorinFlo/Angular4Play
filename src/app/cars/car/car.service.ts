@@ -16,19 +16,26 @@ const cars = [
     new Car(9,"Tatra", "Pink", 5000)
 ]
 
+let carPromise = Promise.resolve(cars);
+
 @Injectable()
-export class CarCreator {
+export class CarService {
+
+    
 
     constructor(private logger:Logger){}
 
-    getAllCars(type: Type<any>): PromiseLike<any[]> {
-        if (type === Car) {
-            return Promise.resolve<Car[]>(cars);
-        }
-        let error=new Error("Cars can't be retrieved");
-        this.logger.error(error);
+    // getAllCars(type: Type<any>): PromiseLike<any[]> {
+    //     if (type === Car) {
+    //         return Promise.resolve<Car[]>(cars);
+    //     }
+    //     let error=new Error("Cars can't be retrieved");
+    //     this.logger.error(error);
             
-        throw error;
+    //     throw error;
+    // }
+    getAllCars(){
+        return carPromise;
     }
 
     addNewCar(car :Car){
@@ -36,7 +43,12 @@ export class CarCreator {
         cars.push(car);
     }
 
-
+    getCar(id: number | string) {
+        console.log("Get car with no"+id);
+    return carPromise
+      // (+) before `id` turns the string into a number
+      .then(cars => cars.find(car => car.id === +id));
+  }
 
     
 }

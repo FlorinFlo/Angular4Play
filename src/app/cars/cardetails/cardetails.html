@@ -1,19 +1,19 @@
 <hr>
 
-
-<p style="font-weight:bold">Details fo the vehicle</p>
+<div *ngIf="car">
+<p style="font-weight:bold">Details of the vehicle</p>
 
 
 <div class="container" [hidden]="editable">
 
 
-<p>Model: {{car.model}}</p>
+    <p>Model: {{car.model}}</p>
 
-<p>Color: {{car.color}}</p>
+    <p>Color: {{car.color}}</p>
 
-<p>Price: ${{car.price}}</p>
+    <p>Price: ${{car.price}}</p>
 
-<button  class="btn btn-primary"  (click)="toggleEdit()">Edit</button>
+    <button class="btn btn-primary" (click)="toggleEdit()">Edit</button>
 </div>
 
 
@@ -26,7 +26,14 @@
         <input [(ngModel)]="car.color">
     </div>
     <div>Price:
-        <span class="currencyinput">$<input [ngModel]="car.price" (ngModelChange)="car.price=$event" type="text"/></span>
+        <span class="currencyinput">$<input [ngModel]="car.price" required (ngModelChange)="car.price=$event" onlyDigit  type="text" #price="ngModel"/></span>
+        <!-- <div [hidden]="price.onlyDigit" class="alert alert-danger">Only digits</div> -->
+         <div [hidden]="price.valid" class="alert alert-danger">Price is required</div> 
     </div>
-    <button class="btn btn-success" (click)="toggleEdit()" >Submit</button>
+    <button class="btn btn-success" [disabled]="!price.valid" (click)="toggleEdit()">Submit</button>
+</div>
+
+<p>
+    <button (click)="gotoCars()">Back</button>
+</p>
 </div>

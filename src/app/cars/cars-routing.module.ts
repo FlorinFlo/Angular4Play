@@ -1,12 +1,14 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { NewCar }    from './carcrud/newcar/newcar.component';
-import { CarDetail }  from './cardetails/cardetails';
+import { NewCar } from './carcrud/newcar/newcar.component';
+import { CarDetail } from './cardetails/cardetails';
 import { CarsList } from './carlist/carslist.component';
 
+
 const carsRoutes: Routes = [
-  { path: 'cars',  component: CarsList },
+  { path: 'newcar', component:NewCar},
+  { path: 'cars', component: CarsList },
   { path: 'car/:id', component: CarDetail }
 ];
 

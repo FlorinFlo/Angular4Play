@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
 
 import { CarsModule } from '../app/cars/cars.module';
-import { CarCreator } from '../app/cars/car/car.creator';
+// import { CarCreator } from '../app/cars/car/car.service';
 import { Logger } from './services/logger';
 import { CarsRoutingModule } from './cars/cars-routing.module';
 import { PageNotFoundComponent } from './not-found.component';

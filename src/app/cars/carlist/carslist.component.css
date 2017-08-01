@@ -1,12 +1,11 @@
-/* div{
-     width: 100%; 
-     text-align: center;
+ div{
+     display: inline;
 }
 
-button{
+/* button{
     display:block-inline;   
      margin: 1px; 
-} */
+}  */
     .hidden{
        display: none; 
     }

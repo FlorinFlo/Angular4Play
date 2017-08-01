@@ -1,7 +1,8 @@
 <p style="font-weight: bold"> Add a new car </p>
 
 <div class="well well-lg">
-    <form (ngSubmit)="onSubmit()" #carForm="ngForm">
+    
+     <form (ngSubmit)="onSubmit()" #carForm="ngForm">
         <div class="form-group">
             <label for="modelName">Model</label>
             <input type="text" id="modelName" required minlength="4" maxlength="10" name="modelName" [(ngModel)]="model.model" #modelName="ngModel">
@@ -31,5 +32,5 @@
 
         <button style="margin: 10px" type="submit" class="btn btn-success" [disabled]="!carForm.form.valid">Submit</button>
 
-    </form>
+    </form> 
 </div>

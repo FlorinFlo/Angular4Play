@@ -1,27 +1,34 @@
 import { Component, Input, ViewChild, AfterViewChecked } from '@angular/core';
 import { Car } from '../../car/car';
-import { CarCreator } from '../../car/car.creator';
+import { CarService } from '../../car/car.service';
 import { CarsList } from '../../carlist/carslist.component';
 import { NgForm } from '@angular/forms';
+import { GetCarsService } from "../../carlist/getcars.service";
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
     selector: `new-car`,
-    templateUrl: `./newcar.component.html`
+    templateUrl: `./newcar.component.html`,
+    providers: [CarsList, GetCarsService]
 })
 
 export class NewCar {
-    @Input() car: Car;
+    //@Input() car: Car;
 
     carForm: NgForm;
     @ViewChild('carForm') currentForm: NgForm;
 
 
-    constructor(private carCreator: CarCreator, private carlist: CarsList) { }
+    constructor(private carCreator: CarService, private carlist: CarsList, private getcars: GetCarsService, private router: Router) { }
 
-    model = new Car(100,"", " ", null);
+
+
+
+    model = new Car(100, "", " ", null);
 
     ngAfterViewChecked() {
         console.log("in ng after view checked");
+
         this.formChanged();
 
     }
@@ -69,10 +76,22 @@ export class NewCar {
 
     onSubmit() {
 
-        let car: Car = new Car(100,this.model.model, this.model.color, this.model.price, "inactive");
+        let cars: Car[] = this.getcars.getCars();
 
-        this.carCreator.addNewCar(car);
-        this.carlist.initializeListOfCars();
+
+        setTimeout(() => {
+            let idTemp = cars[cars.length - 1].id + 1;
+            let car: Car = new Car(idTemp, this.model.model, this.model.color, this.model.price, "inactive");
+
+            this.carCreator.addNewCar(car);
+            this.router.navigate(['/cars']);
+
+        }, 0);
+
+
+
+
+
 
     }
 

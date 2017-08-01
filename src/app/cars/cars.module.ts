@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { CarsList } from '../cars/carlist/carslist.component';
 import { CarDetail } from '../cars/cardetails/cardetails';
 import { NewCar } from '../cars/carcrud/newcar/newcar.component';
-import { CarCreator } from '../cars/car/car.creator';
+import { CarService } from '../cars/car/car.service';
 import { Logger } from '../services/logger';
-import { CarsRoutingModule} from './cars-routing.module';
+import { CarsRoutingModule } from './cars-routing.module';
+import { ForbiddenValidatorDirective } from './digit-only.directive';
 
 @NgModule({
     imports: [
@@ -18,8 +19,10 @@ import { CarsRoutingModule} from './cars-routing.module';
     declarations: [
         CarsList,
         CarDetail,
-        NewCar
+        NewCar,
+        ForbiddenValidatorDirective
+
     ],
-    providers: [CarCreator, Logger]
+    providers: [CarService, Logger]
 })
 export class CarsModule { }

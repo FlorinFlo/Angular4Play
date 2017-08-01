@@ -1,12 +1,19 @@
 <hr>
+
 <div>
-    <div  >
-    <button *ngFor="let car of carsList"  [class.hidden]="carsList.length==0"
-     [@carState]="car.state" (click)="selectCar(car);car.toggleState()" >{{car.model}}</button>
-    </div>
+    <ul  style="list-style-type:none;">
+        <li *ngFor="let car of cars |async" [class.hidden]="cars.length==0" >
+            <button  (click)="selectCar(car);"  [style.width]="listSize" style="border-radius:5px;" ><span style="float:left;background-color:#607d8b;padding-left: 5px;padding-right: 5px">{{car.id}}</span>{{car.model}}</button>
+            
+        </li>
+    </ul>
+
 </div>
+
 
 <!-- <car-details *ngIf="selectedCar" [car]="selectedCar"></car-details> -->
 
- <!-- <new-car *ngIf="selectedCar" [car]="selectedCar"></new-car>  -->
+<!-- <new-car *ngIf="selectedCar" [car]="selectedCar"></new-car>  -->
 <!-- [style.width]="listSize" -->
+<!-- car.toggleState() on click to highlight selection-->
+<!-- [@carState]="car.state" this is a binding on car state -->
